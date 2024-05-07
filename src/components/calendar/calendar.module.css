@@ -1,0 +1,39 @@
+.container {
+  padding: 1rem;
+  background-color: #ebebf0;
+  padding: 2.5rem;
+  /* color: "#fff" */
+}
+
+.heading {
+  color: #28293d;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.subHeading {
+  font-size: 0.875rem;
+  color: #555770;
+}
+
+.subHeading > span {
+  font-weight: 600;
+}
+
+.calendar {
+  border: 3px solid red;
+  border-radius: 10px;
+}
+
+.weekDays {
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  font-family: "Poppins", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+}

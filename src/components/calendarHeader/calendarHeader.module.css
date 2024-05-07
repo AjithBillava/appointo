@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1.25rem;
+  font-family: "Poppins", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-bottom: 1px solid #F2F2F5 ;
+
+}
+
+/* .prevBtn .nextBtn{
+    background: none;
+    border: none;
+    width : 4px;
+    height: 4px;
+} */
+
+.prevBtn {
+  transform: rotate(90deg);
+  background-repeat: no-repeat;
+  background-image: url("/down-arrow.png");
+  background-color: transparent;
+  border: none;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  /* background-position: top 1.2rem right 0rem; */
+  /* padding-right: 1.2rem; */
+}
+.nextBtn {
+  transform: rotate(-90deg);
+  background-repeat: no-repeat;
+  background-image: url("/down-arrow.png");
+  background-color: transparent;
+  border: none;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  /* background-position: top 1.2rem right 0rem; */
+  /* padding-right: 1.2rem; */
+}

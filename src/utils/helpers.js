@@ -11,11 +11,34 @@ export const textToDate = (date) => {
   return formatedDate;
 };
 
+export const convertTimeToLT = (time) => {
+  const formatedTime = moment(time).format("LT");
 
-export const convertTimeToLT = (time) =>{
-    // console.log('time', time)
-    const formatedTime = moment(time).format('LT');  
-    // console.log("🚀 ~ convertTimeToLT ~ formatedTime:", formatedTime)
-    
-    return formatedTime
+  return formatedTime;
+};
+
+export const getYear = (date) => {
+  const year = date
+    ? moment(date).year().toString()
+    : moment(date).year().toString();
+  return year;
+};
+
+export const getMonth = (date) => {
+  const month = date
+    ? moment(date).format("MMMM Do").split(" ")[0].toUpperCase()
+    : moment().format("MMMM Do").split(" ")[0].toUpperCase();
+  console.log("🚀 ~ getMonth ~ month:", moment(date).format('dddd'),moment(date).date());
+  return month;
+};
+
+
+export const getDay = (date) =>{
+    const day = moment(date).format('dddd').toUpperCase()
+    return day;
+} 
+
+export const getDate = (date) =>{
+    const newDate = moment(date).date()
+    return newDate;
 }

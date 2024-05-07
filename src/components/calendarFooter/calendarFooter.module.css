@@ -1,0 +1,48 @@
+.container{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 1rem 0; 
+   background-color: var(--primary-color);
+   width: 100%;
+}
+
+.link{
+    color: white;
+}
+
+.copyText{
+    color: white;
+    margin-left: 30px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.nextBtn{
+    margin-right: 30px;
+    padding: 13.5px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+
+    background-color: #FFFFFF;
+
+    font-size: 14px;
+    font-weight: 600;
+    color: #555770;
+
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+
+    transition: background-color 0.1s ease;
+
+}
+.nextBtn:hover{
+    background-color:#dce9e3;
+
+}
+
+.nextIcon{
+    transform: rotate(-90deg);
+}

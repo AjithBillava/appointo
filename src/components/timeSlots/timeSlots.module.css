@@ -1,0 +1,70 @@
+.container{
+    padding: 3.5rem;
+  width: 24rem;
+    background-color: #fff;
+}
+
+
+
+
+
+
+
+
+
+.firstSection {
+  border-bottom: 1px solid #c7c9d9;
+  padding-bottom: 1.5rem;
+  
+}
+
+.label {
+  color: #555770;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding-bottom: 0.4rem;
+}
+
+.timeSlots {
+  width: 25rem;
+  /* padding-top: 1.5rem; */
+  display: flex;
+  flex-direction: column;
+  height: 16.5rem;
+  /* overflow-y: scroll; */
+  scrollbar-width: thin;
+  overflow-x: hidden;
+  gap: 1rem;
+}
+.slots {
+  padding: 0.844rem 1rem 0.844rem 1rem;
+  width: 22rem;
+
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+/* 
+  background: none; */
+
+  font-family: "Poppins", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  /* 
+  background-color: #fafafc;
+  background-image: url("/down-arrow.png");
+  background-repeat: no-repeat;
+  background-position: top 1.2rem right 0.5rem; */
+  cursor: pointer;
+
+  color: var(--primary-color);
+
+  transition: background-color 0.1s ease;
+
+}
+
+.slots:hover{
+    background-color:var(--seconday-color)
+}

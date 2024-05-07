@@ -1,0 +1,67 @@
+.dropDown {
+  display: flex;
+
+  padding: 0.844rem 0.75rem 0.844rem 0.75rem;
+  width: 24rem;
+
+  border: 1px solid #c7c9d9;
+  border-radius: 10px;
+
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #378760; */
+  background: none;
+
+  font-family: "Poppins", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+
+  background-color: #fafafc;
+  background-image: url("/down-arrow.png");
+  background-repeat: no-repeat;
+  background-position: top 1.2rem right 0.5rem;
+  cursor: pointer;
+
+  color: var(--primary-color);
+  transition: background-color 0.1s ease;
+}
+
+.dropDown:hover {
+  background-color: var(--seconday-color);
+}
+.dropDownContainer {
+  width: 24rem;
+}
+
+.optionContainer {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: baseline; */
+  margin: 0px;
+  padding: 0px;
+  border: 1px solid #c7c9d9;
+  border-bottom: 0px;
+  border-radius: 0 0 10px 10px;
+
+  position: absolute;
+  background-color: #ffffff;
+  width: 382px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--primary-color);
+  overflow: hidden;
+}
+
+.option {
+  display: block;
+  border-bottom: 1px solid #c7c9d9;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  cursor: pointer;
+
+  transition: background-color 0.1s ease;
+}
+
+.option:hover {
+  background-color: var(--seconday-color);
+}
