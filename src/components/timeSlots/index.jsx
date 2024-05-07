@@ -8,7 +8,7 @@ import {
 import styles from "./timeSlots.module.css";
 import DropDown from "../timeRangeDropDown";
 import { useEffect, useState } from "react";
-import { setSelectedTimeSlot } from "../calendar/calendarSlice";
+import { setSelectedTimeSlot } from "../../slices/calendarSlice";
 
 const TimeSlots = () => {
   const { timeSlots, currentDate, selectedTimeSlot } = useSelector(

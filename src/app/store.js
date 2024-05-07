@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import calendarReducer from "../components/calendar/calendarSlice";
-import { calendarApi } from "../components/calendar/services";
+import calendarReducer from "../slices/calendarSlice";
+import { calendarApi } from "../services/calendarServices";
 
 export const store = configureStore({
     reducer: {

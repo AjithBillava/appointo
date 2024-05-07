@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./calendarFooter.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setSlotBooking } from "../calendar/calendarSlice";
+import { setSlotBooking } from "../../slices/calendarSlice";
 
 // import styles from "../footer/footer.module.css";
 

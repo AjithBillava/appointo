@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import moment from "moment";
-import { formatDate } from "../../utils/helpers";
+import { formatDate } from "../utils/helpers";
 
 const initialState = {
   startDate: moment().format("YYYY-MM-DD"),

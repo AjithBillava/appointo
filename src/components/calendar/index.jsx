@@ -3,9 +3,9 @@ import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import MyContainer from "./calendarContainer";
 import { useDispatch, useSelector } from "react-redux";
-import { useGetTimeSlotsQuery } from "./services";
-import { setDate, setTimeSlots } from "./calendarSlice";
-import { formatDate, textToDate } from "../../utils/helpers";
+import { useGetTimeSlotsQuery } from "../../services/calendarServices";
+import { setDate, setTimeSlots } from "../../slices/calendarSlice";
+import { textToDate } from "../../utils/helpers";
 
 import { useEffect } from "react";
 import styles from "./calendar.module.css";
