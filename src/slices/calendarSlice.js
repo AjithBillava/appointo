@@ -21,8 +21,6 @@ const calendarSlice = createSlice({
 
   reducers: {
     setDate: (state, action) => {
-      // const {startDate} = action.payload
-      //   console.log(action);
       const parsedDate = JSON.parse(action.payload);
       return {
         ...state,

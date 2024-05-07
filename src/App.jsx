@@ -1,5 +1,3 @@
-// import { useState } from 'react'
-// import "./App.css";
 import Calendar from "./components/calendar";
 import Navbar from "./components/navBar";
 import TimeSlots from "./components/timeSlots";
@@ -8,17 +6,15 @@ import styles from "./App.module.css";
 import CalendarFooter from "./components/calendarFooter";
 import BookingConfirmation from "./components/bookingConfirmation";
 import { useDispatch, useSelector } from "react-redux";
-import {  useEffect } from "react";
+import { useEffect } from "react";
 import { setShowConfirmationToast } from "./slices/calendarSlice";
 
 function App() {
   const { showConfirmationToast } = useSelector((state) => state.calendar);
   const dispatch = useDispatch();
-  // const [showConfirmedBooking, setShowConfirmedBooking] = useState(isBooked);
 
   useEffect(() => {
     setTimeout(() => {
-      console.log("timeout");
       dispatch(setShowConfirmationToast(false));
     }, 2000);
   }, [showConfirmationToast]);
@@ -26,7 +22,6 @@ function App() {
   return (
     <main className={styles.main}>
       <Navbar />
-      {/* {showConfirmedBooking && isBooked && <BookingConfirmation />} */}
       {showConfirmationToast && <BookingConfirmation />}
       <div className={styles.container}>
         <div className={styles.heroWrapper}>

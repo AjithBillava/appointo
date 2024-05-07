@@ -28,7 +28,6 @@ export const getMonth = (date) => {
   const month = date
     ? moment(date).format("MMMM Do").split(" ")[0].toUpperCase()
     : moment().format("MMMM Do").split(" ")[0].toUpperCase();
-  console.log("🚀 ~ getMonth ~ month:", moment(date).format('dddd'),moment(date).date());
   return month;
 };
 

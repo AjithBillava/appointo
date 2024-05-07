@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import MyContainer from "./calendarContainer";
@@ -11,24 +10,15 @@ import { useEffect } from "react";
 import styles from "./calendar.module.css";
 import CalendarHeader from "../calendarHeader";
 import moment from "moment";
-// import moment from "moment";
 
 const Calendar = () => {
-  // const [startDate, setStartDate] = useState(new Date());
   const { startDate, endDate } = useSelector((state) => state.calendar);
-  // console.log("🚀 ~ Calendar ~ timeSlots:", timeSlots);
   const dispatch = useDispatch();
-  const {
-    data,
-    // error,
-    // isLoading,
-  } = useGetTimeSlotsQuery({ startDate, endDate });
+  const { data } = useGetTimeSlotsQuery({ startDate, endDate });
 
   useEffect(() => {
     let dateFromSearch = window.location.search;
     dateFromSearch = dateFromSearch?.split("=")[1]?.replace(/\s/g, "");
-    console.log("🚀 ~ useEffect ~ dateFromSearch:", dateFromSearch);
-    // console.log
 
     dateFromSearch && dispatch(setDate(JSON.stringify(dateFromSearch)));
     data && dispatch(setTimeSlots(data[0]?.slots));
@@ -49,7 +39,6 @@ const Calendar = () => {
         selected={textToDate(startDate)}
         onChange={(date) => handleDataChange(date)}
         weekDayClassName={() => styles.weekDays}
-        // calendarClassName={()=>styles.calendar}
         renderCustomHeader={CalendarHeader}
         inline
         formatWeekDay={formatWeekDay}

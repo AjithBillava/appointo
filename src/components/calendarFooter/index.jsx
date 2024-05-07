@@ -3,8 +3,6 @@ import styles from "./calendarFooter.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setSlotBooking } from "../../slices/calendarSlice";
 
-// import styles from "../footer/footer.module.css";
-
 const CalendarFooter = () => {
   const { selectedTimeSlot, currentDate } = useSelector(
     (state) => state.calendar
@@ -16,15 +14,11 @@ const CalendarFooter = () => {
   useEffect(() => {
     setBtnText("Next");
     dispatch(setSlotBooking(false));
-
-    // console.log(hiii)
-  }, [currentDate,selectedTimeSlot]);
-  console.log("🚀 ~ handelNextClick ~ selectedTimeSlot:", selectedTimeSlot);
-
+  }, [currentDate, selectedTimeSlot]);
 
   const handelNextClick = () => {
     selectedTimeSlot && setBtnText("Booked");
-    selectedTimeSlot &&  dispatch(setSlotBooking(true));
+    selectedTimeSlot && dispatch(setSlotBooking(true));
   };
 
   return (
@@ -39,7 +33,6 @@ const CalendarFooter = () => {
           APPOINTO
         </a>{" "}
       </div>
-      {/* <div> */}
       <button onClick={() => handelNextClick()} className={styles.nextBtn}>
         {btnText}
         {btnText === "Next" && (
@@ -50,7 +43,6 @@ const CalendarFooter = () => {
           />
         )}
       </button>
-      {/* </div> */}
     </div>
   );
 };

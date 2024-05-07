@@ -7,18 +7,15 @@ import {
 } from "../../utils/helpers";
 import styles from "./timeSlots.module.css";
 import DropDown from "../timeRangeDropDown";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { setSelectedTimeSlot } from "../../slices/calendarSlice";
 import { useGetTimeSlotsQuery } from "../../services/calendarServices";
 
 const TimeSlots = () => {
-  const { timeSlots, currentDate, selectedTimeSlot, startDate, endDate } =
-    useSelector((state) => state.calendar);
-  const {
-    // data,
-    // error,
-    isLoading,
-  } = useGetTimeSlotsQuery({ startDate, endDate });
+  const { timeSlots, currentDate, startDate, endDate } = useSelector(
+    (state) => state.calendar
+  );
+  const { isLoading } = useGetTimeSlotsQuery({ startDate, endDate });
   const dispatch = useDispatch();
   const parsedDate = JSON.parse(currentDate);
   const dayString = ` ${getDay(parsedDate)}, ${getMonth(parsedDate).substring(
@@ -26,26 +23,14 @@ const TimeSlots = () => {
     3
   )} ${getDate(parsedDate)} - AVAIILABLE SLOTS`;
 
-  //   const [selectedTimeSlot, setSlectedTimeSlot] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
-  //   const timeVariants = ["30 min", "1 hour"];
-  //   console.log("🚀 ~ TimeSlots ~ dayString:", dayString);
-  //   console.log("🚀 ~ TimeSlots ~ timeSlots:", timeSlots)
-
-  //   const handleClick = (e) => {
-  //     console.log(e.target.value);
-  //   };
-  console.log("slots", selectedTimeSlot, selectedOption);
 
   useEffect(() => {
     setSelectedOption(null);
-    dispatch(setSelectedTimeSlot(''));
-
-    // console.log(hiii)
+    dispatch(setSelectedTimeSlot(""));
   }, [currentDate]);
 
   const handleOptionClick = (timeSlot, optionIndex) => {
-    console.log("clicked");
     dispatch(setSelectedTimeSlot(timeSlot));
     setSelectedOption(optionIndex);
   };
@@ -74,7 +59,7 @@ const TimeSlots = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              height:'100%'
+              height: "100%",
             }}
           >
             Loading...
