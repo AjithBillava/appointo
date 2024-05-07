@@ -10,6 +10,7 @@ import { textToDate } from "../../utils/helpers";
 import { useEffect } from "react";
 import styles from "./calendar.module.css";
 import CalendarHeader from "../calendarHeader";
+import moment from "moment";
 // import moment from "moment";
 
 const Calendar = () => {
@@ -24,11 +25,18 @@ const Calendar = () => {
   } = useGetTimeSlotsQuery({ startDate, endDate });
 
   useEffect(() => {
+    let dateFromSearch = window.location.search;
+    dateFromSearch = dateFromSearch?.split("=")[1]?.replace(/\s/g, "");
+    console.log("🚀 ~ useEffect ~ dateFromSearch:", dateFromSearch);
+    // console.log
+
+    dateFromSearch && dispatch(setDate(JSON.stringify(dateFromSearch)));
     data && dispatch(setTimeSlots(data[0]?.slots));
   }, [data]);
 
   const handleDataChange = (date) => {
     dispatch(setDate(JSON.stringify(date)));
+    window.location.search = `date=${moment(date).format()}`;
   };
 
   const formatWeekDay = (weekday) => {

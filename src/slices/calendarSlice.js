@@ -2,8 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import moment from "moment";
 import { formatDate } from "../utils/helpers";
 
+let dateFromSearch = window.location.search;
+dateFromSearch = dateFromSearch?.split("=")[1]?.replace(/\s/g, "");
+
 const initialState = {
-  startDate: moment().format("YYYY-MM-DD"),
+  startDate: dateFromSearch ?? moment().format("YYYY-MM-DD"),
   endDate: moment().add(1, "days").format("YYYY-MM-DD"),
   currentDate: JSON.stringify(moment()),
   timeSlots: [],
@@ -56,7 +59,12 @@ const calendarSlice = createSlice({
   },
 });
 
-export const { setDate, setTimeSlots, setSelectedTimeSlot, setSlotBooking,setShowConfirmationToast } =
-  calendarSlice.actions;
+export const {
+  setDate,
+  setTimeSlots,
+  setSelectedTimeSlot,
+  setSlotBooking,
+  setShowConfirmationToast,
+} = calendarSlice.actions;
 
 export default calendarSlice.reducer;
