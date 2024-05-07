@@ -5,7 +5,7 @@ import Navbar from "./components/navBar";
 import TimeSlots from "./components/timeSlots";
 
 import styles from "./App.module.css";
-import Footer from "./components/calendarFooter";
+import CalendarFooter from "./components/calendarFooter";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
             <Calendar />
             <TimeSlots />
           </div>
-        <Footer />
+        <CalendarFooter />
         </div>
         <div className={styles.blueCircle}></div>
         <div className={styles.greenCircle}></div>

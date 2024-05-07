@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   convertTimeToLT,
   getDate,
@@ -7,18 +7,22 @@ import {
 } from "../../utils/helpers";
 import styles from "./timeSlots.module.css";
 import DropDown from "../timeRangeDropDown";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { setSelectedTimeSlot } from "../calendar/calendarSlice";
 
 const TimeSlots = () => {
-  const { timeSlots, currentDate } = useSelector((state) => state.calendar);
+  const { timeSlots, currentDate, selectedTimeSlot } = useSelector(
+    (state) => state.calendar
+  );
 
+  const dispatch = useDispatch();
   const parsedDate = JSON.parse(currentDate);
   const dayString = ` ${getDay(parsedDate)}, ${getMonth(parsedDate).substring(
     0,
     3
   )} ${getDate(parsedDate)} - AVAIILABLE SLOTS`;
 
-  const [selectedTimeSlot, setSlectedTimeSlot] = useState("");
+  //   const [selectedTimeSlot, setSlectedTimeSlot] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
   //   const timeVariants = ["30 min", "1 hour"];
   //   console.log("🚀 ~ TimeSlots ~ dayString:", dayString);
@@ -27,13 +31,19 @@ const TimeSlots = () => {
   //   const handleClick = (e) => {
   //     console.log(e.target.value);
   //   };
-  console.log(selectedTimeSlot, selectedOption);
+  console.log("slots", selectedTimeSlot, selectedOption);
+
+
+
+  useEffect(() => {
+     setSelectedOption(null);
+    // console.log(hiii)
+  }, [currentDate]);
 
   const handleOptionClick = (timeSlot, optionIndex) => {
     console.log("clicked");
-    setSlectedTimeSlot(timeSlot);
+    dispatch(setSelectedTimeSlot(timeSlot));
     setSelectedOption(optionIndex);
-
   };
 
   return (
@@ -49,15 +59,15 @@ const TimeSlots = () => {
       </div>
       <div
         style={
-          timeSlots.lenght > 4 ? { width: "25.5rem", overflowY: "scroll" } : {}
+          timeSlots.length > 4 ? { width: "25.5rem", overflowY: "scroll" } : {}
         }
         className={styles.timeSlots}
       >
-        {timeSlots.slice(0, 5).map((item, index) => (
+        {timeSlots.map((item, index) => (
           <div
             onClick={() => handleOptionClick(item.start_time, index)}
             style={
-              selectedOption === index
+                selectedOption === index
                 ? {
                     justifyContent: "space-between",
                     backgroundColor: "#378760",

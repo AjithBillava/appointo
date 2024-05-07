@@ -5,8 +5,10 @@ import { formatDate } from "../../utils/helpers";
 const initialState = {
   startDate: moment().format("YYYY-MM-DD"),
   endDate: moment().add(1, "days").format("YYYY-MM-DD"),
+  currentDate: JSON.stringify(moment()),
   timeSlots: [],
-  currentDate: JSON.stringify(moment())
+  selectedTimeSlot: "",
+  isBooked: false,
 };
 
 const calendarSlice = createSlice({
@@ -16,8 +18,8 @@ const calendarSlice = createSlice({
   reducers: {
     setDate: (state, action) => {
       // const {startDate} = action.payload
-    //   console.log(action);
-    const parsedDate = JSON.parse(action.payload)
+      //   console.log(action);
+      const parsedDate = JSON.parse(action.payload);
       return {
         ...state,
         startDate: formatDate(parsedDate),
@@ -31,9 +33,22 @@ const calendarSlice = createSlice({
         timeSlots: action.payload,
       };
     },
+    setSelectedTimeSlot: (state, action) => {
+      return {
+        ...state,
+        selectedTimeSlot: action.payload,
+      };
+    },
+    setSlotBooking: (state,action) =>{
+        return{
+            ...state,
+            isBooked: action.payload
+        }
+    }
   },
 });
 
-export const { setDate, setTimeSlots } = calendarSlice.actions;
+export const { setDate, setTimeSlots, setSelectedTimeSlot, setSlotBooking } =
+  calendarSlice.actions;
 
 export default calendarSlice.reducer;
