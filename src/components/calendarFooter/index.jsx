@@ -18,13 +18,13 @@ const CalendarFooter = () => {
     dispatch(setSlotBooking(false));
 
     // console.log(hiii)
-  }, [currentDate]);
+  }, [currentDate,selectedTimeSlot]);
   console.log("🚀 ~ handelNextClick ~ selectedTimeSlot:", selectedTimeSlot);
 
 
   const handelNextClick = () => {
     selectedTimeSlot && setBtnText("Booked");
-    dispatch(setSlotBooking(true));
+    selectedTimeSlot &&  dispatch(setSlotBooking(true));
   };
 
   return (

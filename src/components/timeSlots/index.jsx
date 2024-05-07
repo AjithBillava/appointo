@@ -7,14 +7,18 @@ import {
 } from "../../utils/helpers";
 import styles from "./timeSlots.module.css";
 import DropDown from "../timeRangeDropDown";
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { setSelectedTimeSlot } from "../../slices/calendarSlice";
+import { useGetTimeSlotsQuery } from "../../services/calendarServices";
 
 const TimeSlots = () => {
-  const { timeSlots, currentDate, selectedTimeSlot } = useSelector(
-    (state) => state.calendar
-  );
-
+  const { timeSlots, currentDate, selectedTimeSlot, startDate, endDate } =
+    useSelector((state) => state.calendar);
+  const {
+    // data,
+    // error,
+    isLoading,
+  } = useGetTimeSlotsQuery({ startDate, endDate });
   const dispatch = useDispatch();
   const parsedDate = JSON.parse(currentDate);
   const dayString = ` ${getDay(parsedDate)}, ${getMonth(parsedDate).substring(
@@ -33,10 +37,10 @@ const TimeSlots = () => {
   //   };
   console.log("slots", selectedTimeSlot, selectedOption);
 
-
-
   useEffect(() => {
-     setSelectedOption(null);
+    setSelectedOption(null);
+    dispatch(setSelectedTimeSlot(''));
+
     // console.log(hiii)
   }, [currentDate]);
 
@@ -57,17 +61,30 @@ const TimeSlots = () => {
         {" "}
         {dayString}
       </div>
+
       <div
         style={
           timeSlots.length > 4 ? { width: "25.5rem", overflowY: "scroll" } : {}
         }
         className={styles.timeSlots}
       >
+        {isLoading && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height:'100%'
+            }}
+          >
+            Loading...
+          </div>
+        )}
         {timeSlots.map((item, index) => (
           <div
             onClick={() => handleOptionClick(item.start_time, index)}
             style={
-                selectedOption === index
+              selectedOption === index
                 ? {
                     justifyContent: "space-between",
                     backgroundColor: "#378760",

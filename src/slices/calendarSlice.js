@@ -9,6 +9,7 @@ const initialState = {
   timeSlots: [],
   selectedTimeSlot: "",
   isBooked: false,
+  showConfirmationToast: false,
 };
 
 const calendarSlice = createSlice({
@@ -39,16 +40,23 @@ const calendarSlice = createSlice({
         selectedTimeSlot: action.payload,
       };
     },
-    setSlotBooking: (state,action) =>{
-        return{
-            ...state,
-            isBooked: action.payload
-        }
-    }
+    setSlotBooking: (state, action) => {
+      return {
+        ...state,
+        isBooked: action.payload,
+        showConfirmationToast: action.payload,
+      };
+    },
+    setShowConfirmationToast: (state, action) => {
+      return {
+        ...state,
+        showConfirmationToast: action.payload,
+      };
+    },
   },
 });
 
-export const { setDate, setTimeSlots, setSelectedTimeSlot, setSlotBooking } =
+export const { setDate, setTimeSlots, setSelectedTimeSlot, setSlotBooking,setShowConfirmationToast } =
   calendarSlice.actions;
 
 export default calendarSlice.reducer;

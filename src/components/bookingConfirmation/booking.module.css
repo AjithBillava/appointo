@@ -1,0 +1,17 @@
+.container{
+    position: absolute;
+    z-index: 5;
+    top: 13%;
+    left: 42%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
+
+    border-radius: 10px;
+}
