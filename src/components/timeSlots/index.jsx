@@ -21,7 +21,7 @@ const TimeSlots = () => {
   const dayString = ` ${getDay(parsedDate)}, ${getMonth(parsedDate).substring(
     0,
     3
-  )} ${getDate(parsedDate)} - AVAIILABLE SLOTS`;
+  )} ${getDate(parsedDate)} - AVAILABLE SLOTS`;
 
   const [selectedOption, setSelectedOption] = useState(null);
 
