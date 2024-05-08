@@ -7,7 +7,7 @@ const MyContainer = ({ className, children }) => {
       <div className={styles.headerContainer}>
         <div className={styles.heading}>Test Service</div>
         <div className={styles.subHeading}>
-          <span>Timezone:</span> Asia/Calcutta
+          <span style={{paddingRight:'0.2rem'}}>Timezone:</span> Asia/Calcutta
         </div>
       </div>
       <CalendarContainer className={className}>
