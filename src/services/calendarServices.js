@@ -8,7 +8,7 @@ export const calendarApi = createApi({
   }),
   endpoints: (builder) => ({
     getTimeSlots: builder.query({
-        query: ({startDate = '2024-01-20',endDate = '2024-01-30'}) => `?start_date=${startDate}&end_date=${endDate}`,
+        query: ({startDate ,endDate}) => `?start_date=${startDate}&end_date=${endDate}`,
     }),
   }),
 });

@@ -29,6 +29,7 @@ const TimeSlots = () => {
     setSelectedOption(null);
     dispatch(setSelectedTimeSlot(""));
   }, [currentDate]);
+  
 
   const handleOptionClick = (timeSlot, optionIndex) => {
     dispatch(setSelectedTimeSlot(timeSlot));
