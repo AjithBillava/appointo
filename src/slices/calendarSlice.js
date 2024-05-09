@@ -7,7 +7,7 @@ dateFromSearch = dateFromSearch?.split("=")[1]?.replace(/\s/g, "");
 const initialState = {
   startDate: dateFromSearch ?? moment().format("YYYY-MM-DD"),
   endDate: moment().endOf("month").add(1, "days").format("YYYY-MM-DD"),
-  currentDate: JSON.stringify(moment()),
+  currentDate: JSON.stringify(moment().format()),
   timeSlots: [],
 
   monthTimeSlots: [],
