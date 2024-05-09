@@ -47,7 +47,7 @@ const Calendar = () => {
 
   const handleDataChange = (date) => {
 
-    // window.location.search = `date=${moment(date).format()}`;
+    window.location.search = `date=${moment(date).format()}`;
 
     setSelectedDate(date);
     setCurrentMonth(date);
